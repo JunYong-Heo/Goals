@@ -18,10 +18,15 @@
   .section-icon { width: 32px; height: 32px; border-radius: 8px; display: flex; align-items: center; justify-content: center; font-size: 17px; flex-shrink: 0; }
   .section-title { font-size: 15px; font-weight: 600; color: #1a1a1a; }
   .section-goal { font-size: 12px; color: #999; margin-top: 2px; }
-  .items { padding: 10px 16px 14px; display: flex; flex-direction: column; gap: 9px; }
-  .item { display: flex; align-items: flex-start; gap: 10px; }
-  .dot { width: 6px; height: 6px; border-radius: 50%; margin-top: 7px; flex-shrink: 0; }
-  .item-text { font-size: 13px; color: #555; line-height: 1.65; }
+  .items { padding: 10px 16px 14px; display: flex; flex-direction: column; gap: 13px; }
+  .group { display: flex; flex-direction: column; gap: 7px; }
+  .group-title { font-size: 12px; font-weight: 600; color: #999; }
+  .item { display: flex; align-items: flex-start; gap: 10px; padding-left: 2px; cursor: pointer; -webkit-tap-highlight-color: transparent; user-select: none; -webkit-user-select: none; transition: opacity 0.15s ease; }
+  .item:active { opacity: 0.55; }
+  .dot { width: 6px; height: 6px; border-radius: 50%; margin-top: 7px; flex-shrink: 0; transition: opacity 0.15s ease; }
+  .item-text { font-size: 13px; color: #555; line-height: 1.65; transition: color 0.15s ease; }
+  .item.done .item-text { color: #bbb; text-decoration: line-through; text-decoration-color: #d8d5ce; }
+  .item.done .dot { opacity: 0.3; }
 
   .icon-work { background: #deeaf8; }
   .dot-work { background: #378ADD; }
@@ -35,7 +40,7 @@
 <div class="page">
   <div class="header">
     <h1>단기 목표 <span>[ 9월 ]</span></h1>
-    <p>Something to do & Someone to love</p>
+    <p>Something to do &amp; Someone to love</p>
   </div>
 
   <div class="section">
@@ -43,14 +48,27 @@
       <div class="section-icon icon-work">🔬</div>
       <div>
         <div class="section-title">work</div>
-        <div class="section-goal">연구 4트랙 진척 + 논문 정리 체계화</div>
+        <div class="section-goal">트랙별로 딱 한 걸음씩</div>
       </div>
     </div>
     <div class="items">
-      <div class="item"><div class="dot dot-work"></div><div class="item-text">BSTC-ALD — 30%습 성능 데이터, 롱텀 데이터 확보</div></div>
-      <div class="item"><div class="dot dot-work"></div><div class="item-text">대면적 Flat하게 제작 완성하기</div></div>
-      <div class="item"><div class="dot dot-work"></div><div class="item-text">중견과제 목표치 확인하고 더 적극적으로 접근하기</div></div>
-      <div class="item"><div class="dot dot-work"></div><div class="item-text">논문들을 거미줄 형태로 정리하기</div></div>
+      <div class="group">
+        <div class="group-title">BSTC-ALD</div>
+        <div class="item" data-id="w1"><div class="dot dot-work"></div><div class="item-text">symmetric cell 데이터 확보하기</div></div>
+        <div class="item" data-id="w2"><div class="dot dot-work"></div><div class="item-text">2nm long-term 데이터 확보하기</div></div>
+      </div>
+      <div class="group">
+        <div class="group-title">Large size cell</div>
+        <div class="item" data-id="w3"><div class="dot dot-work"></div><div class="item-text">대면적용 지그 설계 완성하기</div></div>
+      </div>
+      <div class="group">
+        <div class="group-title">중견과제</div>
+        <div class="item" data-id="w4"><div class="dot dot-work"></div><div class="item-text">목표 달성을 위해 정확히 어떤 게 병목이고 문제인지 인지하기</div></div>
+      </div>
+      <div class="group">
+        <div class="group-title">논문</div>
+        <div class="item" data-id="w5"><div class="dot dot-work"></div><div class="item-text">읽은 논문과 내 연구 분야를 거미줄 같은 느낌으로 정리하기</div></div>
+      </div>
     </div>
   </div>
 
@@ -59,15 +77,26 @@
       <div class="section-icon icon-life">☀️</div>
       <div>
         <div class="section-title">life</div>
-        <div class="section-goal">지출·운동 루틴 유지 + 진로 준비</div>
+        <div class="section-goal">운동 · 주말 · 진로 · 독서</div>
       </div>
     </div>
     <div class="items">
-      <div class="item"><div class="dot dot-life"></div><div class="item-text">과자/음료수 줄이고 배달음식 시키지 않기</div></div>
-      <div class="item"><div class="dot dot-life"></div><div class="item-text">운동 주 3회 유지 (근력 / 달리기 / 수영)</div></div>
-      <div class="item"><div class="dot dot-life"></div><div class="item-text">주말에도 연구 혹은 진로 고민 노력 멈추지 않기</div></div>
-      <div class="item"><div class="dot dot-life"></div><div class="item-text">가고 싶은 회사 하나 정하기</div></div>
-      <div class="item"><div class="dot dot-life"></div><div class="item-text">데미안 책 다 읽기</div></div>
+      <div class="group">
+        <div class="group-title">운동</div>
+        <div class="item" data-id="l1"><div class="dot dot-life"></div><div class="item-text">근력, 달리기, 수영 꾸준히 반복하기</div></div>
+      </div>
+      <div class="group">
+        <div class="group-title">일상</div>
+        <div class="item" data-id="l2"><div class="dot dot-life"></div><div class="item-text">주말에도 연구는 멈추지 않기</div></div>
+      </div>
+      <div class="group">
+        <div class="group-title">진로</div>
+        <div class="item" data-id="l3"><div class="dot dot-life"></div><div class="item-text">가고 싶은 회사 뭐든 좋으니까 딱 하나만 선택해보기</div></div>
+      </div>
+      <div class="group">
+        <div class="group-title">독서</div>
+        <div class="item" data-id="l4"><div class="dot dot-life"></div><div class="item-text">데미안 책 읽고 다시 정리하기</div></div>
+      </div>
     </div>
   </div>
 
@@ -76,13 +105,37 @@
       <div class="section-icon icon-free">🎈</div>
       <div>
         <div class="section-title">free</div>
-        <div class="section-goal">하영님과의 관계 결정하기</div>
+        <div class="section-goal">스타일 바꾸고 사람 만나기</div>
       </div>
     </div>
     <div class="items">
-      <div class="item"><div class="dot dot-free"></div><div class="item-text">하영님과의 관계 결정하기</div></div>
+      <div class="group">
+        <div class="item" data-id="f1"><div class="dot dot-free"></div><div class="item-text">머리 매직하기</div></div>
+        <div class="item" data-id="f2"><div class="dot dot-free"></div><div class="item-text">새로운 사람을 만나보기</div></div>
+      </div>
     </div>
   </div>
 </div>
+
+<script>
+(function () {
+  var KEY = 'goals-2026-09';
+  var saved = {};
+  try { saved = JSON.parse(localStorage.getItem(KEY) || '{}'); } catch (e) { saved = {}; }
+
+  var items = document.querySelectorAll('.item[data-id]');
+  for (var i = 0; i < items.length; i++) {
+    (function (el) {
+      var id = el.getAttribute('data-id');
+      if (saved[id]) el.classList.add('done');
+      el.addEventListener('click', function () {
+        el.classList.toggle('done');
+        saved[id] = el.classList.contains('done');
+        try { localStorage.setItem(KEY, JSON.stringify(saved)); } catch (e) {}
+      });
+    })(items[i]);
+  }
+})();
+</script>
 </body>
 </html>
