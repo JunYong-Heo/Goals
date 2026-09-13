@@ -21,6 +21,10 @@
   .items { padding: 10px 16px 14px; display: flex; flex-direction: column; gap: 13px; }
   .group { display: flex; flex-direction: column; gap: 7px; }
   .group-title { font-size: 12px; font-weight: 600; color: #999; }
+  .group.primary { background: #f4f8fd; border: 0.5px solid #dbe7f5; border-radius: 10px; padding: 11px 12px 12px; gap: 6px; }
+  .group.primary .group-title { color: #378ADD; }
+  .group.primary .item-text { color: #1a1a1a; font-weight: 500; }
+  .group.primary .item.done .item-text { color: #bbb; font-weight: 400; }
   .item { display: flex; align-items: flex-start; gap: 10px; padding-left: 2px; cursor: pointer; -webkit-tap-highlight-color: transparent; user-select: none; -webkit-user-select: none; transition: opacity 0.15s ease; }
   .item:active { opacity: 0.55; }
   .dot { width: 6px; height: 6px; border-radius: 50%; margin-top: 7px; flex-shrink: 0; transition: opacity 0.15s ease; }
@@ -48,10 +52,14 @@
       <div class="section-icon icon-work">🔬</div>
       <div>
         <div class="section-title">work</div>
-        <div class="section-goal">트랙별로 딱 한 걸음씩</div>
+        <div class="section-goal">연구 주제 결정 + 트랙별 한 걸음씩</div>
       </div>
     </div>
     <div class="items">
+      <div class="group primary">
+        <div class="group-title">★ 이번 달 1순위 — 연구 주제</div>
+        <div class="item" data-id="w0"><div class="dot dot-work"></div><div class="item-text">석사 연구 주제 결정하기</div></div>
+      </div>
       <div class="group">
         <div class="group-title">BSTC-ALD</div>
         <div class="item" data-id="w1"><div class="dot dot-work"></div><div class="item-text">symmetric cell 데이터 확보하기</div></div>
